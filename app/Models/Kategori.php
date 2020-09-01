@@ -24,4 +24,5 @@ class Kategori extends Model
 
     }
 
+
 }

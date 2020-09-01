@@ -22,6 +22,8 @@ class CreateUrunTable extends Migration
             $table->integer('garanti')->nullable();
             $table->integer('stok')->nullable();
             $table->decimal('fiyati',17,2);
+            $table->integer('kategori_id')->unsigned();
+            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
             $table->timestamp('olusturma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('guncelleme_tarihi')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
             // $table->softDeletes();

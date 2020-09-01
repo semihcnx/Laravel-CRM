@@ -11,6 +11,11 @@ class OzellikKategori extends Model
     protected $guarded=[];
 
 
+    // public function kategoriler()
+    // {
+    //     return $this->belongsToMany('App\Models\OzellikKategori',"ozellik-kategori")->withDefault();
+
+    // }
     public function ozellik()
     {
         return $this->belongsTo('App\Models\Ozellik')->withDefault();

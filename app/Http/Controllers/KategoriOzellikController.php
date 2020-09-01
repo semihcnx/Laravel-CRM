@@ -42,7 +42,8 @@ class KategoriOzellikController extends Controller
 
 
         $anakategoriler= Kategori::whereRaw('ust_id is null')->get();
-        $urun_kategorileri= $entry->kategoriler()->pluck('kategori_id')->all();
+        $urun_kategorileri= $entry->kategorilerim()->pluck('kategori_id')->all();
+
         return view('kategori-ozellik.form', compact('entry','anakategoriler','urun_kategorileri'));
     }
 
@@ -61,13 +62,13 @@ class KategoriOzellikController extends Controller
                 //Güncelle
                 $entry= Ozellik::where('id',$id)->firstOrFail();
                 $entry->update($data);
-                $entry->kategoriler()->sync($kategoriler);  // Kategori dizisinden gelene değerleri senkron ediyor.
+                $entry->kategorilerim()->sync($kategoriler);  // Kategori dizisinden gelene değerleri senkron ediyor.
 
             }
 
             else {
                 $entry  = Ozellik::create($data);
-                $entry->kategoriler()->attach($kategoriler);
+                $entry->kategorilerim()->attach($kategoriler);
             }
 
             return redirect()->route('kategori-ozellik.duzenle',$entry->id)
@@ -82,7 +83,7 @@ class KategoriOzellikController extends Controller
         $ozellik= Ozellik::find($id);
         // $sil= Ozellik::destroy($id);
 
-        $ozellik->kategoriler()->detach();
+        $ozellik->kategorilerim()->detach();
         $ozellik->delete();
         return redirect()->route('kategori-ozellik')
         ->with('mesaj_tur','success')

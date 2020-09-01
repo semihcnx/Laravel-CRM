@@ -19,8 +19,8 @@ class CreateTableMusteri extends Migration
             $table->string('tcno',11)->nullable();
             $table->string('telefon',15);
             $table->string('ceptelefonu',15)->nullable();
-            $table->string('il',30);
-            $table->string('ilce',30);
+            $table->string('company_city',30);
+            $table->string('company_county',30);
             $table->string('adres',200)->nullable();
             $table->string('email',150)->nullable();
             $table->string('resim',50)->nullable();

@@ -16,17 +16,22 @@ class Ozellik extends Model
     const UPDATED_AT = 'guncelleme_tarihi';
     const DELETED_AT = 'silinme_tarihi';
 
-    public function ozellikkategori()
+    // public function ozellikkategori()
+    // {
+    //     return $this->belongsToMany('App\Models\OzellikKategori','ozellik-kategori');
+
+    // }
+
+    // public function kategoriler()
+    // {
+    //     return $this->belongsTo('App\Models\OzellikKategori','ozellik-kategori')->withDefault();
+
+    // }
+
+    public function kategorilerim()
     {
-        return $this->belongsToMany('App\Models\OzellikKategori','ozellik-kategori');
+        return $this->belongsToMany('App\Models\Kategori','ozellik-kategori');
 
     }
-
-    public function kategoriler()
-    {
-        return $this->belongsTo('App\Models\OzellikKategori','ozellik-kategori')->withDefault();
-
-    }
-
 
 }

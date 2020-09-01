@@ -46,7 +46,7 @@ Route::group(['middleware' => 'yonetim'], function () {
         Route::get('/yeni','KategoriOzellikController@form')->name('kategori-ozellik.yeni');
         Route::get('/duzenle/{id}','KategoriOzellikController@form')->name('kategori-ozellik.duzenle');
         Route::post('/duzenle/{id?}','KategoriOzellikController@kaydet')->name('kategori-ozellik.kaydet');
-        Route::get('/sil/{id}','OzellikController@sil')->name('kategori-ozellik.sil');
+        Route::get('/sil/{id}','KategoriOzellikController@sil')->name('kategori-ozellik.sil');
     });
 
     Route::group(['prefix' => 'urun'], function () {
